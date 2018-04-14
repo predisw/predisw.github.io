@@ -68,7 +68,7 @@ top: true
 favicon: /favicon.png
 
 #你的头像url
-#avatar:
+avatar: https://wx2.sinaimg.cn/mw690/78a3863fgy1fq6rvde3naj20fs0jcmz1.jpg
 
 #是否开启分享
 #share_jia: true
