@@ -8,6 +8,7 @@ echo "$is_push";
 
 if [ "$is_push" != "" ];then
   hexo clean;
+  git checkout source
   git add .;
   git commit -m "push to source either after edit";
   git branch -a;
