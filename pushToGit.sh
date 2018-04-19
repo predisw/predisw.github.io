@@ -17,7 +17,7 @@ if [ "$is_push" != "" ];then
   git commit -m "push to source either after edit";
   git branch -a;
   git branch -u origin/source;
-  cat .git/refs/heads/source;
+  cat .git/refs/remotes/origin/HEAD
   git push -u https://"$GH_TOKEN"@"$GH_REF" origin source;
   if [ "$?" != "0" ];then
     exit -1;
