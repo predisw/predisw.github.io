@@ -5,6 +5,8 @@ echo "$last_commit_msg";
 
 is_push=$(echo "$last_commit_msg" |grep "title")
 echo "$is_push";
+export IS_PUSH=YES
+
 
 if [ "$is_push" != "" ];then
   hexo clean;
@@ -14,7 +16,7 @@ if [ "$is_push" != "" ];then
   git commit -m "push to source either after edit";
   git branch -a;
   git branch -u origin/source;
-  git push -u  https://"$GH_TOKEN"@"$GH_REF" origin source;
+  git push -u -f https://"$GH_TOKEN"@"$GH_REF" origin source;
   if [ "$?" != "0" ];then
     exit -1;
   fi  
