@@ -11,6 +11,8 @@ export IS_PUSH=YES
 if [ "$is_push" != "" ];then
   hexo clean;
   git init;
+  git config --global user.name "predisw"
+  git config --global user.email "predisw@sina.com"
   git checkout source;
   git remote -v; 
   git add .;

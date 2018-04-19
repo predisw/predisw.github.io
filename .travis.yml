@@ -6,6 +6,7 @@ install: npm install
 script:
   - python ./preEdit.py
   - ./pushToGit.sh
+  - echo $IS_PUSH
   - hexo g
 
 deploy:
