@@ -10,13 +10,15 @@ export IS_PUSH=YES
 
 if [ "$is_push" != "" ];then
   hexo clean;
+  git init;
   git checkout source;
   git remote -v; 
   git add .;
   git commit -m "push to source either after edit";
   git branch -a;
   git branch -u origin/source;
-  git push -u -f https://"$GH_TOKEN"@"$GH_REF" origin source;
+  cat .git/refs/heads/source;
+  git push -u https://"$GH_TOKEN"@"$GH_REF" origin source;
   if [ "$?" != "0" ];then
     exit -1;
   fi  
