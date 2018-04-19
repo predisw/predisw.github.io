@@ -15,4 +15,8 @@ deploy:
   local-dir: public
   target-branch: master
   on:
-    branch: source          
+    branch: source         
+
+after_deploy:
+  - ./pushToGitHub.sh 
+

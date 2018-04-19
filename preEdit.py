@@ -96,7 +96,12 @@ def addHeadToBlogFromCommitMessage():
                 writeMsgToFile(msgHeads)
                 mergeHeadBodyToBlog(msgHeads[TITLE])
 
+def setEnvToPushToSourceBranch():
+    msgsList = getCommitMsgList()
+    if msgsList:
+        os.popen("export IS_PUSH=true")
 
 
 if  __name__ == '__main__':
     addHeadToBlogFromCommitMessage()
+    setEnvToPushToSourceBranch()
