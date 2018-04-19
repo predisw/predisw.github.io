@@ -15,8 +15,8 @@ if [ "$is_push" != "" ];then
   git branch -a;
   git branch -u origin/source;
   git push -u  https://"$GH_TOKEN"@"$GH_REF" origin source;
-  if [ "$?" != "0"];then
+  if [ "$?" != "0" ];then
     exit -1;
+  fi  
 fi
-
 
