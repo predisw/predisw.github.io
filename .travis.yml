@@ -18,5 +18,5 @@ deploy:
     branch: source         
 
 after_deploy:
-  - ./pushToGitHub.sh 
+  - ./pushToGit.sh 
 
