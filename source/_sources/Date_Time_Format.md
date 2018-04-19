@@ -43,7 +43,6 @@ the design thought of java8 time api
 learn by referring to https://zhuanlan.zhihu.com/p/28133858
 
 
-
 `LocalDateTime`
 This class does not store or represent a time-zone. Instead, it is a description of the date, as used for birthdays, combined with the local time as seen on a wall clock. It cannot represent an instant on the time-line without additional information such as an offset or time-zone.
 
