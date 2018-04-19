@@ -5,6 +5,7 @@ node_js:
 install: npm install
 script:
   - python ./preEdit.py
+  - ./pushToGit.sh
   - hexo g
 
 deploy:
@@ -17,6 +18,4 @@ deploy:
   on:
     branch: source         
 
-after_deploy:
-  - ./pushToGit.sh 
 
