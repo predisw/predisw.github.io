@@ -10,7 +10,9 @@ if [ "$is_push" != "" ];then
   hexo clean;
   git add .;
   git commit -m "push to source either after edit";
-  git push https://"$GH_TOKEN"@"$GH_REF"
+  git branch -a;
+  git branch -u origin/source
+  git push https://"$GH_TOKEN"@"$GH_REF" origin source
 fi
 
 
