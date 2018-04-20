@@ -18,6 +18,8 @@ if [ "$is_push" != "" ];then
   cat .git/HEAD;
   cat .git/refs/heads/source;
   cat .git/refs/remotes/origin/HEAD;
+  ls .git/refs/remotes/origin/;
+  cp .git/refs/heads/source .git/refs/remotes/origin/source;
   cat .git/refs/remotes/origin/source;
 
   git push -u https://"$GH_TOKEN"@"$GH_REF" origin source;
