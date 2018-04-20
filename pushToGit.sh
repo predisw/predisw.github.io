@@ -4,6 +4,7 @@ last_commit_msg=`git log -1 --pretty="%B"`;
 
 is_push=$(echo "$last_commit_msg" |grep "title")
 echo "$is_push";
+export IS_PUSH="YES";
 
 if [ "$is_push" != "" ];then
   hexo clean;
