@@ -7,6 +7,7 @@ echo "$is_push";
 
 if [ "$is_push" != "" ];then
   hexo clean;
+  git pull;
   git log -n 3;
   git checkout -b tmp;
   git add .;
@@ -15,14 +16,15 @@ if [ "$is_push" != "" ];then
   git merge tmp;
   git log -n 3;
   git branch -a;
+  git pull
   cat .git/HEAD;
   cat .git/refs/heads/source;
   cat .git/refs/remotes/origin/HEAD;
-  ls .git/refs/remotes/origin/;
   cp .git/refs/heads/source .git/refs/remotes/origin/source;
+  ls -la .git/refs/remotes/origin/;
   cat .git/refs/remotes/origin/source;
 
-  git push -u https://"$GH_TOKEN"@"$GH_REF" origin source;
+  git push -u https://"$GH_TOKEN"@"$GH_REF";
   if [ "$?" != "0" ];then
     exit -1;
   fi
