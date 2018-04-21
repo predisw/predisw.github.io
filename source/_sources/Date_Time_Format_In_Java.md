@@ -1,6 +1,7 @@
 ### Date Time Format in Java
 
 Before Java8 we always use SimpleDateFormat to format Datetime. What we should take caution is :
+
 1. Never use this kind of object as static
 2. the String Pattern of SimpleDateFormat adapts to Least Match Principle ,it means:
 ```java
