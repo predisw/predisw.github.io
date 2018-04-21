@@ -6,7 +6,6 @@ install: npm install
 script:
   - python ./preEdit.py
   - ./pushToGit.sh
-  - echo $IS_PUSH
   - hexo g
 
 deploy:
@@ -17,7 +16,5 @@ deploy:
   local-dir: public
   target-branch: master
   on:
-    branch: source         
+    branch: source
 
-after_deploy:
-  - echo $IS_PUSH

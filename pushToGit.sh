@@ -4,25 +4,17 @@ last_commit_msg=`git log -1 --pretty="%B"`;
 
 is_push=$(echo "$last_commit_msg" |grep "title")
 echo "$is_push";
-export IS_PUSH="YES";
 
 if [ "$is_push" != "" ];then
-  hexo clean;
-  git pull;
-  git log -n 3;
   git checkout -b tmp;
   git add .;
   git commit -m "push to source either after edit";
   git checkout source;
   git merge tmp;
-  git log -n 3;
-  git branch -a;
-  git pull
   cat .git/HEAD;
   cat .git/refs/heads/source;
   cat .git/refs/remotes/origin/HEAD;
   cp .git/refs/heads/source .git/refs/remotes/origin/source;
-  ls -la .git/refs/remotes/origin/;
   cat .git/refs/remotes/origin/source;
 
   git push -u https://"$GH_TOKEN"@"$GH_REF";
