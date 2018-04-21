@@ -11,7 +11,7 @@ if [ "$is_push" != "" ];then
   git commit -m "push to source either after edit";
   git checkout source;
   git merge tmp;
-#  cat .git/HEAD;
+  cat .git/HEAD;
 #  cat .git/refs/heads/source;
 #  cat .git/refs/remotes/origin/HEAD;
 #  cp .git/refs/heads/source .git/refs/remotes/origin/source;
