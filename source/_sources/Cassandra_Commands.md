@@ -9,8 +9,6 @@ If you want to restore this node ,you need to remove all data and add as one new
 >org.apache.cassandra.exceptions.ConfigurationException: This node was decommissioned and will not rejoin the ring unless cassandra.override_decommission=true has been set, or all existing data is removed and the node is bootstrapped again
 
 
-
-
 - `nodetool removenode` This can help to remove one shutdown node from cluster.
 Once the node has been removed from the cluster they can only be added back to cluster by adding as one new node.
 Or any node which has been removed all data can only be added as one new node to the cluster.
