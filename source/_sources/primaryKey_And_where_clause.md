@@ -90,4 +90,3 @@ References:
 [Partition keys](https://docs.datastax.com/en/dse/6.0/cql/cql/cql_using/wherePK.html)
 [ALLOW FILTERING explained](https://www.datastax.com/dev/blog/allow-filtering-explained-2)
 
-
