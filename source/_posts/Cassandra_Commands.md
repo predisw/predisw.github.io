@@ -1,6 +1,6 @@
 ---
 title: Cassandra_Commands
-date: 2018-05-15 18:50:43
+date: 2018-05-15 19:14:34
 categories:
 - db
 tags:
@@ -12,10 +12,9 @@ tags:
 This assigns the ranges that the node was responsible for to other nodes and replicates the data appropriately.
 If you want to restore this node ,you need to remove all data and add as one new node.Check below:
 
->
-Fatal configuration error; unable to start server.  See log for stacktrace.
-ERROR [main] 2018-04-18 16:34:04,674 CassandraDaemon.java:706 - Fatal configuration error
-org.apache.cassandra.exceptions.ConfigurationException: This node was decommissioned and will not rejoin the ring unless cassandra.override_decommission=true has been set, or all existing data is removed and the node is bootstrapped again
+>Fatal configuration error; unable to start server.  See log for stacktrace.
+>ERROR [main] 2018-04-18 16:34:04,674 CassandraDaemon.java:706 - Fatal configuration error
+>org.apache.cassandra.exceptions.ConfigurationException: This node was decommissioned and will not rejoin the ring unless cassandra.override_decommission=true has been set, or all existing data is removed and the node is bootstrapped again
 
 
 - `nodetool removenode` This can help to remove one shutdown node from cluster.
@@ -29,16 +28,17 @@ Full repair (default) compares all replicas of the data stored on the node where
 - `node rebuild`  Stream data from other data replicated source to local node.This command operates on multiple nodes in a cluster.
 such as `node rebuild dc1` 
 
->
-CAUTION:
-If you don't specify the existing datacenter in the command line, the new nodes will appear to rebuild successfully, but will not contain any data.
-If you miss this step, requests to the new datacenter with LOCAL_ONE or ONE consistency levels may fail if the existing datacenters are not completely in-sync.
 
+>CAUTION:
+>If you don't specify the existing datacenter in the command line, the new nodes will appear to rebuild successfully, but will not contain any data.
+>If you miss this step, requests to the new datacenter with LOCAL_ONE or ONE consistency levels may fail if the existing datacenters are not completely in-sync.
 
 
 
 
 - `nodetool netstats`
+for example:
+```
 [eceuser@cassandra-2 ~]$ nodetool netstats
 Mode: NORMAL
 Rebuild ffbc4870-5401-11e8-b3a1-91a4c568f9bc
@@ -70,7 +70,7 @@ Pool Name                    Active   Pending      Completed   Dropped
 Large messages                  n/a         0            122         1
 Small messages                  n/a         0        2733993         1
 Gossip messages                 n/a         0         245631         1
-
+```
 
 - `tracing on` to record one statement executing process in cqlsh console
 
